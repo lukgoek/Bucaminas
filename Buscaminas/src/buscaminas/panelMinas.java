@@ -6,7 +6,6 @@
 package buscaminas;
 
 import javax.swing.JButton;
-
 /**
  *
  * @author fimaz
@@ -19,13 +18,17 @@ public class panelMinas extends javax.swing.JFrame {
     public panelMinas(int minas, int filas, int columnas) {
         initComponents();
         
-        int x=filas, y=columnas, alturaBtn, anchuraBtn;
-        boton = new JButton[x][y];
         
-        anchuraBtn =500/x;
-        alturaBtn = 500/y;
-        for(int i =0; i<x; i++){
-          for(int j=0; j<y; j++){
+        int filaBomb, columnaBomb, alturaBtn, anchuraBtn;
+        boton = new JButton[filas][columnas];
+        
+        anchuraBtn =500/filas;
+        alturaBtn = 500/columnas;
+        
+        
+        
+        for(int i =0; i<filas; i++){
+          for(int j=0; j<columnas; j++){
               
               boton[i][j]= new JButton();
               
@@ -37,6 +40,12 @@ public class panelMinas extends javax.swing.JFrame {
             
         }
         
+        for(int i=0; i<minas; i++){
+            filaBomb = (int)(Math.random()* minas); 
+             columnaBomb = (int)(Math.random()* minas); 
+             System.out.println(filaBomb+"  "+columnaBomb);
+             boton[filaBomb][columnaBomb].setText("X");
+        }
         
     }
 

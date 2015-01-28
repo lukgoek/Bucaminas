@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
  */
 public class mainMenu extends javax.swing.JFrame {
 
+
     /**
      * Creates new form mainMenu
      */
@@ -22,6 +23,7 @@ public class mainMenu extends javax.swing.JFrame {
         
         //Cambiar icono de aplicacion
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/icono.png")));
+        
     }
 
     /**
@@ -34,9 +36,9 @@ public class mainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnEasy = new javax.swing.JButton();
+        btnHard = new javax.swing.JButton();
+        btnNormal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -53,20 +55,35 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome!");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level1.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level1.1.png"))); // NOI18N
+        btnEasy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level1.png"))); // NOI18N
+        btnEasy.setBorder(null);
+        btnEasy.setContentAreaFilled(false);
+        btnEasy.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level1.1.png"))); // NOI18N
+        btnEasy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEasyActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level3.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level3.1.png"))); // NOI18N
+        btnHard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level3.png"))); // NOI18N
+        btnHard.setBorder(null);
+        btnHard.setContentAreaFilled(false);
+        btnHard.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level3.1.png"))); // NOI18N
+        btnHard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHardActionPerformed(evt);
+            }
+        });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level2.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level2.1.png"))); // NOI18N
+        btnNormal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level2.png"))); // NOI18N
+        btnNormal.setBorder(null);
+        btnNormal.setContentAreaFilled(false);
+        btnNormal.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/level2.1.png"))); // NOI18N
+        btnNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNormalActionPerformed(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Choose one difficulty");
@@ -112,10 +129,10 @@ public class mainMenu extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEasy, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(350, 350, 350)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,7 +147,7 @@ public class mainMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnHard, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addComponent(btnCustom)))
@@ -146,10 +163,10 @@ public class mainMenu extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel3)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEasy, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -164,7 +181,7 @@ public class mainMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(218, 218, 218)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnHard, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(btnCustom)
                 .addGap(34, 34, 34))
@@ -178,6 +195,27 @@ public class mainMenu extends javax.swing.JFrame {
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomActionPerformed
+
+    private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
+        int minas=5, filas=5, columnas=5;
+        panelMinas obj = new panelMinas(minas, filas, columnas);
+        obj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEasyActionPerformed
+
+    private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
+        int minas=30, filas=10, columnas=10;
+        panelMinas obj = new panelMinas(minas, filas, columnas);
+        obj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnNormalActionPerformed
+
+    private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
+        int minas=100, filas=25, columnas=25;
+        panelMinas obj = new panelMinas(minas, filas, columnas);
+        obj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnHardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,9 +254,9 @@ public class mainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustom;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnEasy;
+    private javax.swing.JButton btnHard;
+    private javax.swing.JButton btnNormal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
