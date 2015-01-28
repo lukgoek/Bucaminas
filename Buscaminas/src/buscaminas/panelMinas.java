@@ -41,10 +41,19 @@ public class panelMinas extends javax.swing.JFrame {
         }
         
         for(int i=0; i<minas; i++){
-            filaBomb = (int)(Math.random()* minas); 
-             columnaBomb = (int)(Math.random()* minas); 
-             System.out.println(filaBomb+"  "+columnaBomb);
-             boton[filaBomb][columnaBomb].setText("X");
+            filaBomb = (int)(Math.random()* filas); 
+            columnaBomb = (int)(Math.random()* columnas); 
+             
+            System.out.println("i= "+i+"   "+filaBomb+"  "+columnaBomb);
+             
+            String valor = boton[filaBomb][columnaBomb].getText();
+            
+                if( valor.equals("X") ){
+                    i--;
+                }else{
+                        boton[filaBomb][columnaBomb].setText("X");
+             
+                }
         }
         
     }
