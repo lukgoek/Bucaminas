@@ -16,17 +16,21 @@ public class panelMinas extends javax.swing.JFrame {
    
     JButton boton [][];
     
-    public panelMinas() {
+    public panelMinas(int minas, int filas, int columnas) {
         initComponents();
         
-        int x=10, y=10;
-        boton = new JButton[5][5];
+        int x=filas, y=columnas, alturaBtn, anchuraBtn;
+        boton = new JButton[x][y];
         
-        for(int i =0; i<5; i++){
-          for(int j=0; j<5; j++){
+        anchuraBtn =500/x;
+        alturaBtn = 500/y;
+        for(int i =0; i<x; i++){
+          for(int j=0; j<y; j++){
               
-              boton[i][j]= new JButton("  "+j);
-              boton[i][j].setBounds(j*60, i*60, 60, 60);
+              boton[i][j]= new JButton();
+              
+                //SetBound(x, y, with, higt);
+              boton[i][j].setBounds(j*(anchuraBtn-4), i*(alturaBtn-4), anchuraBtn, alturaBtn);
               pnlMinas.add(boton[i][j]);
               
           }
@@ -62,11 +66,11 @@ public class panelMinas extends javax.swing.JFrame {
         pnlMinas.setLayout(pnlMinasLayout);
         pnlMinasLayout.setHorizontalGroup(
             pnlMinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         pnlMinasLayout.setVerticalGroup(
             pnlMinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
@@ -82,8 +86,12 @@ public class panelMinas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(pnlMinas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlMinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +108,8 @@ public class panelMinas extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlMinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlMinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -109,43 +118,7 @@ public class panelMinas extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        
-        
-        
-        
-        
-        
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(panelMinas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(panelMinas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(panelMinas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(panelMinas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new panelMinas().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

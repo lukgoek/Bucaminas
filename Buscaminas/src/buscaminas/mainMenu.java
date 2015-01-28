@@ -42,6 +42,7 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnCustom = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -81,6 +82,13 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Hard");
+
+        btnCustom.setText("Custom");
+        btnCustom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Options");
         jMenuBar1.add(jMenu1);
@@ -122,7 +130,10 @@ public class mainMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(174, 174, 174)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(btnCustom)))
                 .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
@@ -154,11 +165,19 @@ public class mainMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(218, 218, 218)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(btnCustom)
+                .addGap(34, 34, 34))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCustomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomActionPerformed
+        personalizado obj = new personalizado();
+        obj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCustomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,6 +215,7 @@ public class mainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCustom;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
