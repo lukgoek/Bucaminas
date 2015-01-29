@@ -5,12 +5,17 @@
  */
 package buscaminas;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 /**
  *
  * @author fimaz
  */
-public class panelMinas extends javax.swing.JFrame {
+public class panelMinas extends javax.swing.JFrame  implements ActionListener{
 
    
     JButton boton [][];
@@ -48,13 +53,21 @@ public class panelMinas extends javax.swing.JFrame {
              
             String valor = boton[filaBomb][columnaBomb].getText();
             
-                if( valor.equals("X") ){
+                if( valor.equals(" ") ){
                     i--;
                 }else{
-                        boton[filaBomb][columnaBomb].setText("X");
+                        boton[filaBomb][columnaBomb].setText(" ");
              
                 }
         }
+        
+        
+        for(int i =0; i<filas; i++){
+          for(int j=0; j<columnas; j++){
+                boton[i][j].addActionListener(this);
+          }
+        }
+        
         
     }
 
@@ -144,4 +157,42 @@ public class panelMinas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel pnlMinas;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String texto;
+        int fila, columna;
+        
+        JButton boton = (JButton)e.getSource();
+        texto = boton.getText();
+        
+        
+        if(texto.equals(" ")){
+            //System.out.println("ENTRO");
+            
+            boton.setIcon(new ImageIcon(getClass().getResource("../images/bombtablero.png")));
+            JOptionPane.showMessageDialog(null, "Sorry, You lose!");
+            
+        }else{
+            boton.setEnabled(false);
+            
+            
+            for(int i =0; i<this.boton.length; i++){
+            for(int j=0; j<this.boton.length; j++){
+                if(boton == this.boton[i][j]){
+                    fila=i;
+                    columna=j;
+                }
+            }
+           }
+            
+            
+            
+            
+        }
+        
+       
+        
+        
+    }
 }
