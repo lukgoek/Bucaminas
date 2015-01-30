@@ -198,21 +198,42 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
         int minas=5, filas=5, columnas=5;
-        panelMinas obj = new panelMinas(minas, filas, columnas);
+        panelMinas obj = new panelMinas();
+        
+        obj.llenarPanel(minas, filas, columnas);
+        
+        obj.gMinas=minas;
+        obj.gFilas=minas;
+        obj.gColumnas=minas;
+        
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnEasyActionPerformed
 
     private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
         int minas=30, filas=10, columnas=10;
-        panelMinas obj = new panelMinas(minas, filas, columnas);
+        panelMinas obj = new panelMinas();
+        
+        obj.llenarPanel(minas, filas, columnas);
+        
+        obj.gMinas=minas;
+        obj.gFilas=minas;
+        obj.gColumnas=minas;
+        
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNormalActionPerformed
 
     private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
         int minas=100, filas=25, columnas=25;
-        panelMinas obj = new panelMinas(minas, filas, columnas);
+        panelMinas obj = new panelMinas();
+        
+        obj.llenarPanel(minas, filas, columnas);
+        
+        obj.gMinas=minas;
+        obj.gFilas=minas;
+        obj.gColumnas=minas;
+        
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnHardActionPerformed

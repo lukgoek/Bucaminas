@@ -161,7 +161,11 @@ public class personalizado extends javax.swing.JFrame {
                 System.out.println("columnas "+nColumnas);
                 
                 
-                panelMinas obj = new panelMinas(nMinas, nFilas, nColumnas);
+                panelMinas obj = new panelMinas();
+                obj.llenarPanel(nMinas, nFilas, nColumnas);
+                obj.gMinas=nMinas;
+                obj.gFilas=nFilas;
+                obj.gColumnas=nColumnas;
                 
                 obj.setVisible(true);
                 
