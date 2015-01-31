@@ -29,11 +29,74 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
 
     }
     
-    public void mostrarMinas(){
+    public void buscarMinas(int i, int j){
+       //n= numero p=posicion
+        i--;
+        j--;
+        int nBombas=0;
+        String bomb=" ", pUno="", pDos="", pTres="", pCuatro="", pSeis="", pSiete="", pOcho="", pNueve="", nBombasFinal;
+        
+        System.out.println("ESTO "+gFilas);
+        System.out.println("ESTO "+gColumnas);
+        
+        if((i-1) > 0 ){
+            System.out.println("ENTRO1");
+        pUno = this.boton[i-1][j-1].getText();
+        pDos = this.boton[i-1][j].getText();  
+        
+        pCuatro = this.boton[i][j-1].getText();
         
         
+        
+        }
+        
+        if(j <= gColumnas-1){
+            System.out.println("ENTRO2");
+            pSeis = this.boton[i][j+1].getText();
+            pOcho = this.boton[i+1][j].getText();
+            pNueve = this.boton[i+1][j+1].getText();
+        
+        }
+        
+        if((i-1) > 0 && j<=gColumnas-1){
+            System.out.println("ENTRO3");
+            pTres = this.boton[i-1][j+1].getText();
+            pSiete = this.boton[i+1][j-1].getText();
+        }
+        
+        
+       
+        if(pUno.equals(" ")){
+            nBombas++;
+        }
+        if(pDos.equals(" ")){
+            nBombas++;
+        }
+        if(pTres.equals(" ")){
+            nBombas++;
+        }
+        if(pCuatro.equals(" ")){
+            nBombas++;
+        }
+        if(pSeis.equals(" ")){
+            nBombas++;
+        }
+        if(pSiete.equals(" ")){
+            nBombas++;
+        }
+        if(pOcho.equals(" ")){
+            nBombas++;
+        }
+        if(pNueve.equals(" ")){
+            nBombas++;
+        }
+        
+        nBombasFinal= String.valueOf(nBombas);
+        this.boton[i][j].setText(nBombasFinal);
         
     }
+    
+    
     
     public void llenarPanel(int minas, int filas, int columnas){
         //llenamos el label de minas
@@ -55,8 +118,11 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
               boton[i][j]= new JButton();
               
                 //SetBound(x, y, wigth, higth);
-              boton[i][j].setBounds(j*(anchuraBtn-4), i*(alturaBtn-4), anchuraBtn, alturaBtn);
+              boton[i][j].setBounds(j*(anchuraBtn), i*(alturaBtn), anchuraBtn, alturaBtn);
+              boton[i][j].setContentAreaFilled(false);
+              boton[i][j].setBorder(javax.swing.BorderFactory.createEtchedBorder());
               pnlMinas.add(boton[i][j]);
+              
               
           }
             
@@ -116,13 +182,16 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
         lbMinas.setText("00");
         getContentPane().add(lbMinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 188, 81));
 
-        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset.png"))); // NOI18N
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset1.png"))); // NOI18N
+        btnReset.setBorder(null);
+        btnReset.setContentAreaFilled(false);
+        btnReset.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset2.png"))); // NOI18N
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 11, 192, 139));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 128, 128));
 
         javax.swing.GroupLayout pnlMinasLayout = new javax.swing.GroupLayout(pnlMinas);
         pnlMinas.setLayout(pnlMinasLayout);
@@ -194,7 +263,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
     }//GEN-LAST:event_menuBackActionPerformed
 
     private void menuBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBackMousePressed
-        int salir = JOptionPane.showConfirmDialog(null,"Realmente desea salir?.\nSe perdera cualquier pregreso en el juego.","¿Nos abandonas?", JOptionPane.YES_NO_OPTION);
+        int salir = JOptionPane.showConfirmDialog(null,"Are you sure?.\nThe progress will be lost.","¿Do you want to leave?", JOptionPane.YES_NO_OPTION);
     
             if(salir==0){
              // Upps se quiere ir...
@@ -230,12 +299,12 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
         
         
         String texto, contenido;
-        int fila, columna;
+        int fila=0, columna=0;
         
         JButton boton = (JButton)e.getSource();
         texto = boton.getText();
         
-        
+        //Cuando es bomba
         if(texto.equals(" ")){
             //System.out.println("ENTRO");
             
@@ -272,8 +341,8 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
                     columna=j;
                 }
             }
-           }
-            
+        }
+        this.buscarMinas(fila, columna);
             
             
             
