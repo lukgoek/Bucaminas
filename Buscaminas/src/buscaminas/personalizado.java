@@ -5,6 +5,7 @@
  */
 package buscaminas;
 
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 
@@ -20,6 +21,9 @@ public class personalizado extends javax.swing.JFrame {
     public personalizado() {
         
         initComponents();
+        setLocationRelativeTo(null);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/icono.png")));
+        
         
         
         
@@ -43,99 +47,66 @@ public class personalizado extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtColumnas = new javax.swing.JTextField();
         btnStart = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuBack = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Mines");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 82, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 147, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Custom");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 316, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Rows");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 122, -1, -1));
 
         txtMinas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtMinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 87, 106, -1));
 
         txtFilas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 127, 106, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel5.setText("Colums");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 162, -1, -1));
 
         txtColumnas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txtColumnas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 166, 106, -1));
 
-        btnStart.setText("Start");
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inicio1.png"))); // NOI18N
+        btnStart.setContentAreaFilled(false);
+        btnStart.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inicio2.png"))); // NOI18N
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
             }
         });
+        getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 197, -1, 64));
 
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FONDO.jpg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-7, -22, 330, 290));
+
+        menuBack.setText("<- Back");
+        menuBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuBackMouseClicked(evt);
             }
         });
+        jMenuBar1.add(menuBack);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMinas)
-                            .addComponent(txtFilas)
-                            .addComponent(txtColumnas, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                        .addComponent(btnStart)))
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(txtFilas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtMinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel2)))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(txtColumnas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStart)
-                        .addContainerGap(12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBack)
-                        .addContainerGap())))
-        );
+        jMenu2.setText("About");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,40 +114,58 @@ public class personalizado extends javax.swing.JFrame {
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         
         String minas, filas,columnas;
+        int minasCast, filasCast, columnasCast;
         minas = txtMinas.getText();
         filas = txtFilas.getText();
         columnas = txtColumnas.getText();
         
+        
+        
             if(minas.isEmpty() || filas.isEmpty() || columnas.isEmpty()){
-            JOptionPane.showMessageDialog(null,"¡ERROR! No se completaron todos los campos. ");
+            JOptionPane.showMessageDialog(null,"¡ERROR! Please complete all fields. ");
             }else{
-                int nMinas, nFilas, nColumnas;
+                minasCast = Integer.parseInt(txtMinas.getText());
+                filasCast = Integer.parseInt(txtFilas.getText());
+                columnasCast = Integer.parseInt(txtColumnas.getText());
+                //Validamos que las minas sean >=1 y < al tamaño del tablero
+                if(minasCast <= 0){
+                    JOptionPane.showMessageDialog(null,"¡ERROR! You need more mines. ");
+                }else{
+                
+                    if(minasCast == (filasCast * columnasCast) ){
+                        JOptionPane.showMessageDialog(null,"¡ERROR! A lot of mines. ");
+                    }else{
+                        int nMinas, nFilas, nColumnas;
 
-                nMinas =Integer.parseInt(txtMinas.getText());
-                nFilas =Integer.parseInt(txtFilas.getText());
-                nColumnas =Integer.parseInt(txtColumnas.getText());
+                        nMinas =Integer.parseInt(txtMinas.getText());
+                        nFilas =Integer.parseInt(txtFilas.getText());
+                        nColumnas =Integer.parseInt(txtColumnas.getText());
 
-                System.out.println("minas "+nMinas);
-                System.out.println("filas "+nFilas);
-                System.out.println("columnas "+nColumnas);
+                        System.out.println("minas "+nMinas);
+                        System.out.println("filas "+nFilas);
+                        System.out.println("columnas "+nColumnas);
+
+
+                        panelMinas obj = new panelMinas();
+                        obj.llenarPanel(nMinas, nFilas, nColumnas);
+                        obj.gMinas=nMinas;
+                        obj.gFilas=nFilas;
+                        obj.gColumnas=nColumnas;
+
+                        obj.setVisible(true);
+                    }
                 
-                
-                panelMinas obj = new panelMinas();
-                obj.llenarPanel(nMinas, nFilas, nColumnas);
-                obj.gMinas=nMinas;
-                obj.gFilas=nFilas;
-                obj.gColumnas=nColumnas;
-                
-                obj.setVisible(true);
-                
+            }
             }
     }//GEN-LAST:event_btnStartActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        mainMenu obj = new mainMenu();
-        obj.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnBackActionPerformed
+    private void menuBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBackMouseClicked
+        
+            mainMenu obj = new mainMenu();
+            obj.setVisible(true);
+            setVisible(false);
+        
+    }//GEN-LAST:event_menuBackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -191,13 +180,16 @@ public class personalizado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuBack;
     private javax.swing.JTextField txtColumnas;
     private javax.swing.JTextField txtFilas;
     private javax.swing.JTextField txtMinas;

@@ -6,6 +6,7 @@
 package buscaminas;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -18,13 +19,14 @@ import javax.swing.JOptionPane;
 public class panelMinas extends javax.swing.JFrame  implements ActionListener{
 
    int gMinas, gFilas, gColumnas;
-   
     JButton boton [][];
-   
    
     
     public panelMinas() {
         initComponents();
+        setLocationRelativeTo(null);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/icono.png")));
+
     }
     
     public void mostrarMinas(){
@@ -34,7 +36,11 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
     }
     
     public void llenarPanel(int minas, int filas, int columnas){
+        //llenamos el label de minas
+        System.out.println("ESTO: "+minas);
+        lbMinas.setText(""+minas);
         
+        //inicializamos variables
         int filaBomb, columnaBomb, alturaBtn, anchuraBtn;
         boton = new JButton[filas][columnas];
         
@@ -91,16 +97,24 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lbMinas = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
         pnlMinas = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuBack = new javax.swing.JMenu();
+        menuAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("00");
+        lbMinas.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lbMinas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMinas.setText("00");
+        getContentPane().add(lbMinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 188, 81));
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reset.png"))); // NOI18N
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +122,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
                 btnResetActionPerformed(evt);
             }
         });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 11, 192, 139));
 
         javax.swing.GroupLayout pnlMinasLayout = new javax.swing.GroupLayout(pnlMinas);
         pnlMinas.setLayout(pnlMinasLayout);
@@ -120,54 +135,76 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
+        getContentPane().add(pnlMinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 156, -1, -1));
+
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("00:00");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 188, 76));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlMinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlMinas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Mines");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 188, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Time");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 46, 226, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FONDO.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, -20, 630, 700));
+
+        menuBack.setText("<- Back");
+        menuBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menuBackMousePressed(evt);
+            }
+        });
+        menuBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBackActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuBack);
+
+        menuAbout.setText("About");
+        jMenuBar1.add(menuAbout);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-       
+        
         pnlMinas.removeAll();
+        pnlMinas.repaint();
+        System.out.println(""+gMinas+""+gFilas+""+gColumnas);
         this.llenarPanel(gMinas,gFilas, gColumnas);
         
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void menuBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBackActionPerformed
+      
+        mainMenu obj = new mainMenu();
+        obj.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_menuBackActionPerformed
+
+    private void menuBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBackMousePressed
+        int salir = JOptionPane.showConfirmDialog(null,"Realmente desea salir?.\nSe perdera cualquier pregreso en el juego.","¿Nos abandonas?", JOptionPane.YES_NO_OPTION);
+    
+            if(salir==0){
+             // Upps se quiere ir...
+                mainMenu obj = new mainMenu();
+                obj.setVisible(true);
+                setVisible(false);
+            }else{
+                //No hacemos nada continuamos :D
+            } 
+    }//GEN-LAST:event_menuBackMousePressed
 
     /**
      * @param args the command line arguments
@@ -178,7 +215,13 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbMinas;
+    private javax.swing.JMenu menuAbout;
+    private javax.swing.JMenu menuBack;
     private javax.swing.JPanel pnlMinas;
     // End of variables declaration//GEN-END:variables
 
