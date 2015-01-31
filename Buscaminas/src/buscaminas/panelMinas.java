@@ -31,38 +31,68 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
     
     public void buscarMinas(int i, int j){
        //n= numero p=posicion
-        i--;
-        j--;
+        
         int nBombas=0;
         String bomb=" ", pUno="", pDos="", pTres="", pCuatro="", pSeis="", pSiete="", pOcho="", pNueve="", nBombasFinal;
         
-        System.out.println("ESTO "+gFilas);
-        System.out.println("ESTO "+gColumnas);
+        System.out.println("ESTO "+gFilas+"  i"+i);
+        System.out.println("ESTO "+gColumnas+"  j"+j);
         
-        if((i-1) > 0 ){
-            System.out.println("ENTRO1");
+        
+        //1
+        if((i-1) >= 0 && (j-1) >= 0){
+        System.out.println("ENTRO1");
         pUno = this.boton[i-1][j-1].getText();
+        
+        }
+        //2
+        if((i-1) >= 0){
+        System.out.println("ENTRO2");
         pDos = this.boton[i-1][j].getText();  
-        
-        pCuatro = this.boton[i][j-1].getText();
-        
-        
         
         }
         
-        if(j <= gColumnas-1){
-            System.out.println("ENTRO2");
+        //3
+        if((i-1) >= 0 && j+1 <= (gColumnas-1) ){
+            System.out.println("ENTRO3 "+(gColumnas-1));
+            pTres = this.boton[i-1][j+1].getText();
+        }
+        
+        //4
+        if((j-1) >= 0){
+            System.out.println("ENTRO4");
+            pCuatro = this.boton[i][j-1].getText();
+        }
+        
+        //6
+        if((j+1) <= (gColumnas-1) ){
+            System.out.println("ENTRO6");
             pSeis = this.boton[i][j+1].getText();
+        }
+        
+        //7
+        if((i+1) <= (gFilas-1) && (j-1) >= 0){
+            System.out.println("ENTRO7");
+            pSiete = this.boton[i+1][j-1].getText();
+        }
+        
+        
+        //8
+        if((i+1) <= (gFilas-1)){
+            System.out.println("ENTRO9  gc"+(gFilas));
             pOcho = this.boton[i+1][j].getText();
+           
+        
+        }
+        
+        //9
+        if((j+1) <= (gColumnas-1) && (i+1) <= (gColumnas-1)){
+            System.out.println("ENTRO9  gc"+(gColumnas));
             pNueve = this.boton[i+1][j+1].getText();
         
         }
         
-        if((i-1) > 0 && j<=gColumnas-1){
-            System.out.println("ENTRO3");
-            pTres = this.boton[i-1][j+1].getText();
-            pSiete = this.boton[i+1][j-1].getText();
-        }
+        
         
         
        
