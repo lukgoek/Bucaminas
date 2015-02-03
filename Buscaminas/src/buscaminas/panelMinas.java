@@ -6,6 +6,7 @@
 package buscaminas;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -367,7 +368,9 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
 
                       if(contenido.equals(" ")){
                           //System.out.println("ENTRO!");
-                          this.boton[i][j].setIcon(new ImageIcon(getClass().getResource("../images/bombtablero.png")));
+                          Image imagenescalada= new ImageIcon(getClass().getResource("../images/bombtablero.png")).getImage().getScaledInstance(((int)500/gFilas), ((int)500/gColumnas), Image.SCALE_SMOOTH);
+                          
+                          this.boton[i][j].setIcon(new ImageIcon(imagenescalada));
                           
 
                       }
