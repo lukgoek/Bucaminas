@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -16,16 +18,33 @@ import javax.swing.JOptionPane;
  *
  * @author fimaz
  */
-public class panelMinas extends javax.swing.JFrame  implements ActionListener{
+public class panelMinas extends javax.swing.JFrame  implements ActionListener, Runnable{
 
-   int gMinas, gFilas, gColumnas;
+    int gMinas, gFilas, gColumnas;
     JButton boton [][];
-   
+    
+    //Variables para el hilo de contador de tiempo
+    Thread timer;
+    float time;
+    
+    
     
     public panelMinas() {
+        //Metodo Principal
         initComponents();
+        
+        //Colocamos la ventana en el centro de la pantalla
         setLocationRelativeTo(null);
+        
+        //Colocamos un icono de aplicacion
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../images/icono.png")));
+        
+        
+        
+        //iniciamos el contador y el metodo
+        time=0;
+        timer = new Thread(this);
+        timer.start();
 
     }
     
@@ -95,7 +114,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
         
         
         
-       
+        //Contamos las bombas
         if(pUno.equals(" ")){
             nBombas++;
         }
@@ -179,7 +198,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
         
         
         
-        //Agregamos un action listener
+        //Agregamos un action listener a cada boton
         for(int i =0; i<filas; i++){
           for(int j=0; j<columnas; j++){
                 boton[i][j].addActionListener(this);
@@ -196,7 +215,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
         lbMinas = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
         pnlMinas = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lTime = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -236,10 +255,10 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
 
         getContentPane().add(pnlMinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 156, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("00:00");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 188, 76));
+        lTime.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTime.setText("00:00");
+        getContentPane().add(lTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 188, 76));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -315,9 +334,9 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
     private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lTime;
     private javax.swing.JLabel lbMinas;
     private javax.swing.JMenu menuAbout;
     private javax.swing.JMenu menuBack;
@@ -381,5 +400,27 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener{
        
         
         
+    }
+
+    
+    //Metodo principal de runnable
+    @Override
+    public void run() {
+        int min, seg;
+        
+        while(true){
+        
+        time++;
+        min=(int) (time / 60);
+        seg=(int) (time % 60);
+        lTime.setText(min+":"+seg);
+        
+            try {
+                Thread.sleep(1000);
+            } catch (Exception ex) {
+                
+            }
+        
+        }
     }
 }
