@@ -118,27 +118,50 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
         //Contamos las bombas
         if(pUno.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i-1, j-1);
         }
+        
         if(pDos.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i-1, j);
         }
+        
         if(pTres.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i-1, j+1);
         }
+        
         if(pCuatro.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i, j-1);
         }
+        
         if(pSeis.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i, j+1);
         }
+        
         if(pSiete.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i+1, j-1);
         }
+        
         if(pOcho.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i+1, j);
         }
+        
         if(pNueve.equals(" ")){
             nBombas++;
+        }else{
+            this.clicks(i+1, j+1);
         }
         
         nBombasFinal= String.valueOf(nBombas);
@@ -205,6 +228,18 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
                 boton[i][j].addActionListener(this);
           }
         }
+        
+    }
+    
+    public void clicks(int i, int j){
+        System.out.println((i-1)+" esto"+(j-1));
+        if((i-1)>= 0 && j<(gColumnas-1) && (j-1)>= 0 ){
+            if(boton[i][j].equals("")){
+            System.out.println("aqui");
+            boton[i][j].doClick();
+            }
+        }
+        
         
     }
 
@@ -296,11 +331,13 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        
+        timer.stop();
+        this.timer = new Thread();
         pnlMinas.removeAll();
         pnlMinas.repaint();
         System.out.println(""+gMinas+""+gFilas+""+gColumnas);
         this.llenarPanel(gMinas,gFilas, gColumnas);
+        
         
     }//GEN-LAST:event_btnResetActionPerformed
 
@@ -313,14 +350,23 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
     }//GEN-LAST:event_menuBackActionPerformed
 
     private void menuBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBackMousePressed
+        
+        try{ 
+         timer.suspend();
+        } catch (Exception e){ 
+        
+        }   
+        
         int salir = JOptionPane.showConfirmDialog(null,"Are you sure?.\nThe progress will be lost.","¿Do you want to leave?", JOptionPane.YES_NO_OPTION);
     
             if(salir==0){
              // Upps se quiere ir...
+                timer.stop();
                 mainMenu obj = new mainMenu();
                 obj.setVisible(true);
                 setVisible(false);
             }else{
+                timer.resume();
                 //No hacemos nada continuamos :D
             } 
     }//GEN-LAST:event_menuBackMousePressed
@@ -395,6 +441,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
             }
         }
         this.buscarMinas(fila, columna);
+        this.clicks(fila, columna);
             
             
             
