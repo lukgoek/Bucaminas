@@ -233,9 +233,11 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
     
     public void clicks(int i, int j){
         System.out.println((i-1)+" esto"+(j-1));
-        if((i-1)>= 0 && j<(gColumnas-1) && (j-1)>= 0 ){
-            if(boton[i][j].equals("")){
-            System.out.println("aqui");
+        if((i-1)>= 0 && j<=(gColumnas-1) && (j-1)>= 0 && (i+1)<=(gColumnas-1) ){
+            if(boton[i][j].equals(" ")){
+            
+            }else{
+                System.out.println("aqui");
             boton[i][j].doClick();
             }
         }
@@ -335,7 +337,7 @@ public class panelMinas extends javax.swing.JFrame  implements ActionListener, R
         this.timer = new Thread();
         pnlMinas.removeAll();
         pnlMinas.repaint();
-        System.out.println(""+gMinas+""+gFilas+""+gColumnas);
+        //System.out.println(""+gMinas+""+gFilas+""+gColumnas);
         this.llenarPanel(gMinas,gFilas, gColumnas);
         
         
